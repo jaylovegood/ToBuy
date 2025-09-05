@@ -11,16 +11,18 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface ShoppingItemDao {
     @Insert
-    fun insertShoppingItem(item: ShoppingItemEntity)
+    suspend fun insertShoppingItem(item: ShoppingItemEntity)
 
     @Delete
-    fun deleteShoppingItem(item: ShoppingItemEntity)
+    suspend fun deleteShoppingItem(item: ShoppingItemEntity)
 
     @Update
-    fun updateShoppingItem(item: ShoppingItemEntity)
+    suspend fun updateShoppingItem(item: ShoppingItemEntity)
 
-    @Query("SELECT * FROM shopping_items WHERE category_id == :categoryId")
-    fun loadAllItemsInCategory(categoryId: Long)
-
-
+    @Query(
+        "SELECT * FROM shopping_items " +
+                "WHERE category_id = :categoryId " +
+                "ORDER BY id ASC"
+    )
+    fun getItemsInCategory(categoryId: Long): Flow<List<ShoppingItemEntity>>
 }
