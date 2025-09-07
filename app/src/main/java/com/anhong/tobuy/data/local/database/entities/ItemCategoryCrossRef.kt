@@ -25,5 +25,7 @@ data class ItemCategoryCrossRef (
     @ColumnInfo(name = "item_id")
     val itemId: Long,
     @ColumnInfo(name = "category_id")
-    val categoryId: Long
+    val categoryId: Long,
+    @ColumnInfo(name = "order_in_category")
+    val orderInCategory: Int,
 )

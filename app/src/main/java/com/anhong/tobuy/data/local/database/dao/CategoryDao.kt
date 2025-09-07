@@ -17,10 +17,10 @@ interface CategoryDao {
     @Delete
     suspend fun deleteCategory(category: CategoryEntity)
 
-    @Query("SELECT * FROM categories")
+    @Query("SELECT * FROM categories ORDER BY ordering")
     fun getAllCategories(): Flow<List<CategoryEntity>>
 
     @Transaction
-    @Query("SELECT * FROM categories")
+    @Query("""SELECT * FROM categories ORDER BY ordering""")
     fun getCategoriesWithItems(): Flow<List<CategoryWithItems>>
 }

@@ -1,4 +1,9 @@
 package com.anhong.tobuy.data.local
 
-class LocalDataSource {
+import com.anhong.tobuy.data.local.database.ShoppingDatabase
+
+class LocalDataSource (
+    private val db: ShoppingDatabase
+){
+
 }

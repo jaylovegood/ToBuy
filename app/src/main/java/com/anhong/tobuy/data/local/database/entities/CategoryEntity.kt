@@ -7,11 +7,14 @@ import androidx.room.ColumnInfo
 @Entity(tableName = "categories")
 data class CategoryEntity(
     @PrimaryKey(autoGenerate = true)
-    val id: Long,
+    val id: Long = 0,
 
     @ColumnInfo(name = "name")
     val name: String,
 
     @ColumnInfo(name = "color")
     val color: String? = null,
+
+    @ColumnInfo(name = "ordering")
+    val ordering: Int
 )
