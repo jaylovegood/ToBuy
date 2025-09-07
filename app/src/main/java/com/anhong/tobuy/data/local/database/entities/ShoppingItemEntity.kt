@@ -18,7 +18,4 @@ data class ShoppingItemEntity (
 
     @ColumnInfo(name = "checked")
     val checked: Int,
-
-    @ColumnInfo(name = "category_id")
-    val categoryId: Long,
 )
